@@ -1,0 +1,30 @@
+package controle;
+
+import java.util.Scanner;
+
+public class ex0005 {
+
+	public static void main(String[] args) {
+		Scanner scanner= new Scanner(System.in);
+		
+		System.out.print("Digite o nome do time de futebol: ");
+		String nomeTime= scanner.next();
+		
+		System.out.print("Digite a quantidade de vitórias do time: ");
+		int qtdVitorias= scanner.nextInt();
+		
+		System.out.print("Digite a quantidade de empates do time: ");
+		int qtdEmpates= scanner.nextInt();
+		
+		System.out.print("Digite a quantidade de derrotas do time: ");
+		int qtdDerrotas= scanner.nextInt();
+		
+		int pontosGanhos= qtdVitorias*3+ qtdEmpates;
+		int pontosNaoGanhos= qtdDerrotas*3+ qtdEmpates*2;
+		
+		System.out.printf("A quantidade de pontos ganhos pelo time %s é de: %d.%nEnquanto que a quantidade de pontos não ganhos é de: %d%n", nomeTime, pontosGanhos, pontosNaoGanhos);
+		
+		scanner.close();
+	}
+
+}
