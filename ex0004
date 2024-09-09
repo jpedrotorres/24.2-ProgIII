@@ -1,0 +1,35 @@
+package controle;
+
+import java.util.Scanner;
+
+public class ex0004 {
+
+	public static void main(String[] args) {
+		Scanner scanner= new Scanner(System.in);
+		
+		System.out.print("Digite preço unitário dos games: ");
+		double precoGames= scanner.nextDouble();
+		System.out.print("Digite a quantidade de games vendidos: ");
+		int qtdGames= scanner.nextInt();
+		
+		System.out.print("Digite preço unitário da calculadora: ");
+		double precoCalculadora= scanner.nextDouble();
+		System.out.print("Digite a quantidade de calculadoras vendidas: ");
+		int qtdCalculadora= scanner.nextInt();
+		
+		System.out.print("Digite preço unitário das canetas: ");
+		double precoCaneta= scanner.nextDouble();
+		System.out.print("Digite a quantidade de canetas vendidas: ");
+		int qtdCaneta= scanner.nextInt();
+		
+		double faturamentoGames= precoGames*qtdGames;
+		double faturamentoCalculadora= precoCalculadora*qtdCalculadora;
+		double faturamentoCaneta= precoCaneta*qtdCaneta;
+		double faturamentoTotal= faturamentoGames+ faturamentoCalculadora+ faturamentoCaneta;
+		
+		System.out.printf("O faturamento da venda dos games é de R$ %.2f;%nO faturamento da venda de calculadoras é de R$ %.2f;%nO faturamento da venda de canetas é de R$ %.2f;%nO faturamento total é de R$%.2f%n", faturamentoGames, faturamentoCalculadora, faturamentoCaneta, faturamentoTotal);
+		
+		scanner.close();
+	}
+
+}
