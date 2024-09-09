@@ -1,0 +1,29 @@
+package controle;
+
+import java.util.Scanner;
+
+public class ex0003 {
+
+	public static void main(String[] args) {
+		Scanner scanner= new Scanner(System.in);
+		
+		System.out.print("Digite o código: ");
+		int codigo= scanner.nextInt();
+		
+		System.out.print("Digite a quantidade de alunos do sexo masculino: ");
+		int qtdAlunoMasc= scanner.nextInt();
+		
+		System.out.print("Digite a quantidade de alunos do sexo feminino: ");
+		int qtdAlunoFem= scanner.nextInt();
+		
+		System.out.print("Digite a quantidade de alunos aprovados: ");
+		int qtdAlunoAprov= scanner.nextInt();
+		
+		int totalAlunos= qtdAlunoMasc+ qtdAlunoFem;
+		
+		System.out.printf("A porcentagem de alunos masculinos é de: %.2f;%n A porcentagem de alunas femininas é de: %.2f;%n A porcentagem de alunos reprovados é de: %.2f;%n O total de alunos é de: %d;%n", (double) qtdAlunoMasc/totalAlunos, (double)qtdAlunoFem/totalAlunos, (double)(totalAlunos- qtdAlunoAprov)/totalAlunos, totalAlunos);
+		
+		scanner.close();
+	}
+
+}
