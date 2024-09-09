@@ -1,0 +1,19 @@
+package controle;
+
+import java.util.Scanner;
+
+public class ex0002 {
+	public static void main(String[] args) {
+		Scanner scanner= new Scanner(System.in);
+		
+		System.out.print("Digite a temperatura em graus Farenheit: ");
+		double temperatura= scanner.nextDouble();
+		
+		double temperaturaCelsius= 5*(temperatura-32)/9;
+		
+		System.out.printf("A temperatura informada, convertida para graus Celsius, é: %.2f%n", temperaturaCelsius);
+		
+		scanner.close();
+	}
+
+}
