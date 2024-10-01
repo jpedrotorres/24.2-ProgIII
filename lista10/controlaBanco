@@ -1,0 +1,96 @@
+package controle;
+
+import java.util.Scanner;
+import dominio.ContaBancaria;
+import dominio.ContaPoupanca;
+import dominio.ContaEspecial;
+
+public class controlaBanco {
+
+	public static void main(String[] args) {
+		Scanner scanner= new Scanner(System.in);
+		ContaBancaria conta= null;
+		
+		System.out.println("Digite sua opção:");
+		System.out.println("1- Conta Poupança;");
+		System.out.println("2- Conta Especial;");
+		System.out.print("Digite sua opção:");
+		int opcConta= scanner.nextInt();
+		
+		scanner.nextLine();
+		System.out.print("Digite o nome do cliente: ");
+		String cliente= scanner.nextLine();
+		
+		System.out.print("Digite o número da conta do cliente: ");
+		int num_conta= scanner.nextInt();
+
+		System.out.print("Digite o saldo atual da conta do cliente: ");
+		float saldo= scanner.nextFloat();
+
+		if(opcConta == 1) {
+			System.out.print("Digite o dia do rendimento da conta:");
+			int dia_rendimento= scanner.nextInt();
+			
+			conta= new ContaPoupanca(cliente, num_conta, saldo, dia_rendimento);
+		} else if(opcConta== 2) {
+			System.out.print("Digite o limite da conta especial:");
+			float limite= scanner.nextFloat();
+			
+			conta= new ContaEspecial(cliente, num_conta, saldo, limite);
+		} else System.out.println("Opção inválida!");
+
+		int opcOperacao;
+		do {
+			System.out.println("Escolha uma operação:");
+			System.out.println("1- Depositar");
+			System.out.println("2- Sacar");
+			System.out.println("3- Calcular novo saldo com rendimento");
+			System.out.println("4- Mostrar saldo");
+			System.out.println("5- Mostrar dados da conta");
+			System.out.println("0- Sair");
+			opcOperacao = scanner.nextInt();
+
+			switch (opcOperacao) {
+				case 1:
+			        System.out.println("Digite o valor a depositar:");
+			        float deposito = scanner.nextFloat();
+			        conta.depositar(deposito);
+			        break;
+
+				case 2:
+					System.out.println("Digite o valor a sacar:");
+					float saque = scanner.nextFloat();
+					conta.sacar(saque);
+					break;
+
+				case 3:
+					if (conta instanceof ContaPoupanca) {
+						System.out.println("Digite a taxa de rendimento (em decimal):");
+						float taxa = scanner.nextFloat();
+						((ContaPoupanca) conta).calcularNovoSaldo(taxa);
+					} else {
+						System.out.println("Esta operação só é permitida para contas poupança.");
+					}
+					break;
+					
+				case 4:
+					System.out.println("Saldo atual: " + conta.getSaldo());
+					break;
+
+				case 5:
+					System.out.println(conta.toString());
+					break;
+
+				case 0:
+					System.out.println("Adeus!");
+					break;
+
+				default:
+					System.out.println("Opção inválida.");
+			}
+		} while (opcOperacao != 0);
+
+		scanner.close();
+	}
+
+}
