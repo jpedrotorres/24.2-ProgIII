@@ -1,5 +1,13 @@
 package AV2.PROJETO;
 
+/*
+ 	trabalho feito por:
+ 	Aron Barbosa
+ 	João Marcelo Lopes
+  	João Pedro Torres
+  	Luis Felipe Dos Santos
+ */
+
 import view.FuncionarioView;
 import controller.FuncionarioController;
 
